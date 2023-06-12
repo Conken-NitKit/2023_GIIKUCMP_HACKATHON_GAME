@@ -6,20 +6,25 @@ using UnityEngine;
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     private void Start() {
+        
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }
 
     // マスターサーバーへの接続が成功した時に呼ばれるコールバック
-    public override void OnConnectedToMaster() {
+    public override void OnConnectedToMaster() 
+    {
         // "Room"という名前のルームに参加する（ルームが存在しなければ作成して参加する）
         PhotonNetwork.JoinOrCreateRoom("Room", new RoomOptions(), TypedLobby.Default);
     }
 
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
-    public override void OnJoinedRoom() {
-        // ランダムな座標に自身のアバター（ネットワークオブジェクト）を生成する
-        var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
-        PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+    public override void OnJoinedRoom()
+    {
+        if (PhotonNetwork.IsMasterClient) {
+            PhotonNetwork.InstantiateRoomObject("TextBoard", new Vector3(0f,1f,0f), Quaternion.identity);
+        }
+        
+        Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 }
