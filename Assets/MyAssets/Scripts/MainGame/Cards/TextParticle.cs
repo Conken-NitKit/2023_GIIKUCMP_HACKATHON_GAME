@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TextParticle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private TextMeshPro _particleText;
+    
+    public string Particle {
+        get
+        {
+            //ここで今カードが推せるか助詞のカードが推せるかの判定をする
+            if (true)
+            {
+                return _particleText.text;
+            }
+            
+        } }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -9,7 +7,14 @@ namespace Assets.MyAssets.Scripts.MainGame.Cards
     {
         [SerializeField]
         private TextMeshPro _cardText;
-        
-        public string CardText { get { return _cardText.text;  } }
+
+        public string CardText
+        {
+            //ここで今カードが推せるか助詞のカードが推せるかの判定をする
+            get
+            {
+                return _cardText.text;
+            }
+        }
     }
 }
