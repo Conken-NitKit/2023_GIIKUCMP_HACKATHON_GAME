@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGameManagr : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MainGameManagr : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
+    
+        // Update is called once per frame
+        void Update()
+        {
+            
+        }
     }
 }
+
