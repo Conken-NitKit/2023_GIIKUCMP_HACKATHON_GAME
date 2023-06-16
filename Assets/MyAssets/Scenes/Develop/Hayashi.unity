@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4219319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -268,9 +268,12 @@ GameObject:
   - component: {fileID: 19089081}
   - component: {fileID: 19089080}
   - component: {fileID: 19089082}
+  - component: {fileID: 19089083}
+  - component: {fileID: 19089085}
+  - component: {fileID: 19089084}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,7 +305,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &19089082
 MonoBehaviour:
@@ -318,6 +321,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardDb: {fileID: 19089080}
   _cardObject: {fileID: 8925711261675251214, guid: 192889d040ba447eab8e74ecc9ecd661, type: 3}
+--- !u!114 &19089083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19089079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0771a9015d745499ea5946b5723e7704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &19089084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19089079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd2ce158ee7f45c68bb93151db97213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &19089085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19089079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11538537729d740bfbf1b70c351397fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &77280507
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170.6877, y: 47.1465}
+  m_AnchoredPosition: {x: -304, y: -46}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134583450
@@ -520,10 +559,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 19089082}
-        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.Cards.CardDisPlay,
+      - m_Target: {fileID: 19089085}
+        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.GameManagers.TextManager,
           Assembly-CSharp
-        m_MethodName: DrawFirst
+        m_MethodName: ResetPreviousText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -721,7 +760,7 @@ RectTransform:
   - {fileID: 134583449}
   - {fileID: 1707092277}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -863,63 +902,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844531095}
   m_CullTransparentMesh: 1
---- !u!1 &912155495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 912155497}
-  - component: {fileID: 912155499}
-  - component: {fileID: 912155498}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &912155497
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912155495}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912155498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912155495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8b2b3c786f9c4400937be83d38db5a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &912155499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912155495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd2ce158ee7f45c68bb93151db97213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1109873259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1373,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1707092276
 GameObject:
@@ -1477,11 +1459,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 19089082}
-        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.Cards.CardDisPlay,
+      - m_Target: {fileID: 19089085}
+        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.GameManagers.TextManager,
           Assembly-CSharp
-        m_MethodName: ReDrawCard
-        m_Mode: 3
+        m_MethodName: hoge
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1703,7 +1685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2082550216
 RectTransform:
   m_ObjectHideFlags: 0

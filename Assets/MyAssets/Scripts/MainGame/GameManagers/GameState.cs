@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using UniRx;
 
-public class GameState : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum GameState
     {
-        
+        Init,
+        HappyTurn,
+        BadTurn,
+        BeforeResult,
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    [Serializable]
+    public class GameStateReactiveProperty : ReactiveProperty<GameState>
     {
-        
+        public GameStateReactiveProperty()
+        {
+        }
+
+        public GameStateReactiveProperty(GameState initialValue)
+            : base(initialValue)
+        {
+        }
     }
 }

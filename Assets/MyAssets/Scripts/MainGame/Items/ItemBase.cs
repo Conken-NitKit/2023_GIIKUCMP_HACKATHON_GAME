@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.MyAssets.Scripts.MainGame.Cards;
+using Assets.MyAssets.Scripts.MainGame.GameManagers;
 using UnityEngine;
 
-public class ItemBase : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Items
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class ItemBase : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        public ItemType ItemType { get; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected MainGameManager _mainGameManager;
+        protected TextManager _textManager;
+        protected CardDisPlay _cardDisPlay;
+
+        void Start()
+        {
+            var gameManager = GameObject.FindWithTag("GameManager");
+            _mainGameManager = gameManager.GetComponent<MainGameManager>();
+            _textManager = gameManager.GetComponent<TextManager>();
+            _cardDisPlay = gameManager.GetComponent<CardDisPlay>();
+        }
+
+        public abstract void ActivateEffect();
     }
 }

@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class PlayerParameter : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Players
 {
-    // Start is called before the first frame update
-    void Start()
+    [Serializable]
+    struct PlayerParameter
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public bool IsHappyTeam;
+        public string PlayerName;
     }
 }
