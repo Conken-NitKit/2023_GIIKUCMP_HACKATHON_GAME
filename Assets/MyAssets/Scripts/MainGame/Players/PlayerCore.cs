@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCore : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Players
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerCore : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private PlayerParameter _parameter;
     }
 }
