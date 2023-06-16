@@ -5,21 +5,14 @@ using TMPro;
 
 namespace Assets.MyAssets.Scripts.MainGame.Cards
 {
-    public class TextParticle : MonoBehaviour
+    public class TextParticle : MonoBehaviour,ISendable
     {
         [SerializeField]
         private TextMeshPro _particleText;
-    
-        public string Particle {
-            get
-            {
-                //ここで今カードが推せるか助詞のカードが推せるかの判定をする
-                if (true)
-                {
-                    return _particleText.text;
-                }
-            
-            } 
+        
+        public string ReceiveText()
+        {
+            return _particleText.text;
         }
     }
 }
