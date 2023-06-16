@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextParticle : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Cards
 {
-    [SerializeField]
-    private TextMeshPro _particleText;
+    public class TextParticle : MonoBehaviour
+    {
+        [SerializeField]
+        private TextMeshPro _particleText;
     
-    public string Particle {
-        get
-        {
-            //ここで今カードが推せるか助詞のカードが推せるかの判定をする
-            if (true)
+        public string Particle {
+            get
             {
-                return _particleText.text;
-            }
+                //ここで今カードが推せるか助詞のカードが推せるかの判定をする
+                if (true)
+                {
+                    return _particleText.text;
+                }
             
-        } }
+            } 
+        }
+    }
 }
