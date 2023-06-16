@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 {
-    public class MainGameManagr : MonoBehaviour
+    public class MainGameManager : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

@@ -2,7 +2,6 @@ using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using ExitGames.Client.Photon;
-using UnityEditor;
 using UniRx;
 
 namespace Assets.MyAssets.Scripts.MainGame.GameManagers
@@ -17,18 +16,19 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
         private const string TextKey = "TEXT";
 
+        private const string TextBoard = "TextBoard";
+
         private TextMeshPro _textBoard;
 
         public void hoge()
         {
             if (PhotonNetwork.IsMasterClient) {
-                _textBoard = PhotonNetwork.InstantiateRoomObject("TextBoard", new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<TextMeshPro>();
+                _textBoard = PhotonNetwork.InstantiateRoomObject(TextBoard, new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<TextMeshPro>();
             }
             else
             {
-                _textBoard = GameObject.FindWithTag("TextBoard").GetComponent<TextMeshPro>();
+                _textBoard = GameObject.FindWithTag(TextBoard).GetComponent<TextMeshPro>();
             }
-            Debug.Log($"TEXTBOARD{_textBoard}");
             _hashtable[TextKey] = "";
             PhotonNetwork.CurrentRoom.SetCustomProperties(_hashtable);
         }
