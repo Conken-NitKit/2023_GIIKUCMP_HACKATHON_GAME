@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4219319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 19089083}
   - component: {fileID: 19089085}
   - component: {fileID: 19089084}
+  - component: {fileID: 19089086}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: GameManager
@@ -357,6 +358,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11538537729d740bfbf1b70c351397fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &19089086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19089079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac323bbb297746e0b852335b602b76a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textManager: {fileID: 19089085}
 --- !u!1 &77280507
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,10 +573,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 19089085}
-        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.GameManagers.TextManager,
+      - m_Target: {fileID: 19089082}
+        m_TargetAssemblyTypeName: Assets.MyAssets.Scripts.MainGame.Cards.CardDisPlay,
           Assembly-CSharp
-        m_MethodName: ResetPreviousText
+        m_MethodName: DrawFirst
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1685,7 +1699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2082550216
 RectTransform:
   m_ObjectHideFlags: 0
