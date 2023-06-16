@@ -17,14 +17,14 @@ public class TitleProgressManager : MonoBehaviour
         _matchData = matchData;
     }
 
-    public void LoadMatchScene(string name)
+    public void LoadMatchScene(string playerName)
     {
-        _matchData.PlayerName = new ReactiveProperty<string>(name);
+        _matchData.PlayerName = new ReactiveProperty<string>(playerName);
     }
 
-    public void LoadMatchScene(string name,int roomNum)
+    public void LoadMatchScene(string playerName,int roomNum)
     {
-        _matchData.PlayerName = new ReactiveProperty<string>(name);
+        _matchData.PlayerName = new ReactiveProperty<string>(playerName);
         _matchData.RoomNum = new ReactiveProperty<int>(roomNum);
         
         _sceneLoader.LoadScene("Matching");

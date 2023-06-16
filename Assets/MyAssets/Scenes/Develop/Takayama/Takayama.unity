@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 31782523}
   - component: {fileID: 31782522}
   - component: {fileID: 31782525}
-  - component: {fileID: 31782526}
   m_Layer: 5
   m_Name: FriendPanel
   m_TagString: Untagged
@@ -235,62 +234,6 @@ MonoBehaviour:
   _roomNumInput: {fileID: 1902524362}
   _roomErrorText: {fileID: 113762373}
   _dataValidator: {fileID: 1341234512}
---- !u!114 &31782526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31782520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 31782523}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 31782525}
-        m_TargetAssemblyTypeName: PanelController, Assembly-CSharp
-        m_MethodName: Inactivate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &42414872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,7 +1781,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 526658498}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1341234510}
+        m_TargetAssemblyTypeName: TitleProgressManager, Assembly-CSharp
+        m_MethodName: LoadLibScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &526658498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2281,7 +2236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &706276007
 MonoBehaviour:
@@ -2446,7 +2401,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963402900
 MonoBehaviour:
@@ -2762,6 +2717,7 @@ GameObject:
   - component: {fileID: 1341234511}
   - component: {fileID: 1341234510}
   - component: {fileID: 1341234512}
+  - component: {fileID: 1341234513}
   m_Layer: 0
   m_Name: SceneProgressManager
   m_TagString: Untagged
@@ -2781,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032aeca093ed84f76b8fb82907a51e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneLoader: {fileID: 0}
+  _sceneLoader: {fileID: 1341234513}
 --- !u!4 &1341234511
 Transform:
   m_ObjectHideFlags: 0
@@ -2795,7 +2751,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1341234512
 MonoBehaviour:
@@ -2811,6 +2767,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   roomNumLength: 5
+--- !u!114 &1341234513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341234509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2268a17e0ce2843f8860196252176ca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430464807
 GameObject:
   m_ObjectHideFlags: 0
