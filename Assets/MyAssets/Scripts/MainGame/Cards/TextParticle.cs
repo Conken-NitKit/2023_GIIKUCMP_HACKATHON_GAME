@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class TextParticle : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Cards
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TextParticle : MonoBehaviour,ISendable
     {
+        [SerializeField]
+        private TextMeshPro _particleText;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public string ReceiveText()
+        {
+            return _particleText.text;
+        }
     }
 }

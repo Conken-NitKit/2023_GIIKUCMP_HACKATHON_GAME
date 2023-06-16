@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class CardInfo : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Cards
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CardInfo : MonoBehaviour , ISendable
     {
-        
-    }
+        [SerializeField]
+        private TextMeshPro _cardText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int CardNum;
+
+        public string ReceiveText()
+        {
+            return _cardText.text;
+        }
     }
 }
