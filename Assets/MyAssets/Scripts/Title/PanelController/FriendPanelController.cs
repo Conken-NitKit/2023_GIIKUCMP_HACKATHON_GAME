@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using MyAssets.Scripts.Title.Match;
 using TMPro;
@@ -16,8 +17,9 @@ public class FriendPanelController : PanelController
         
         bool isValidRoomNum = _dataValidator.IsValidRoomNum(_roomNumInput.text,out string roomNumError);
         _roomErrorText.text = roomNumError;
-        
-        
-        if(isValidName && isValidRoomNum) _sceneProgressManager.LoadMatchScene();
+
+        string playerName = _playerNameInput.text;
+        int roomNum = Int32.Parse(_roomNumInput.text);
+        if(isValidName && isValidRoomNum) _sceneProgressManager.LoadMatchScene(playerName,roomNum);
     }
 }

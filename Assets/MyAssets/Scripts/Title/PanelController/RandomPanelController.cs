@@ -12,6 +12,6 @@ public class RandomPanelController : PanelController
         bool isValidName = _dataValidator.IsValidName(_playerNameInput.text,out string nameError);
         _nameErrorText.text = nameError;
 
-        if(isValidName) _sceneProgressManager.LoadMatchScene();
+        if(isValidName) _sceneProgressManager.LoadMatchScene(_playerNameInput.text);
     }
 }
