@@ -20,6 +20,8 @@ public class TitleProgressManager : MonoBehaviour
     public void LoadMatchScene(string playerName)
     {
         _matchData.PlayerName = new ReactiveProperty<string>(playerName);
+        _matchData.RoomNum = new ReactiveProperty<int>(0);
+        _sceneLoader.LoadScene("Matching");
     }
 
     public void LoadMatchScene(string playerName,int roomNum)
