@@ -1,20 +1,21 @@
 using TMPro;
 using UnityEngine;
+using Assets.MyAssets.Scripts.MainGame.GameManagers;
 
 public class MessageTest : MonoBehaviour
 {
     [SerializeField] 
     private TMP_InputField hoge;
 
-    private TextGene textGene;
+    private TextManager _manager;
 
     public void SendMassage()
     {
-        if (textGene == null)
+        if (_manager == null)
         {
-            textGene = GameObject.FindWithTag("TextBoard").GetComponent<TextGene>();
+            _manager = GameObject.FindWithTag("GameManager").GetComponent<TextManager>();
         }
-        textGene.AddText(hoge.text);
+        _manager.AddText(hoge.text);
         hoge.text = "";
     }
 }

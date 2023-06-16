@@ -29,10 +29,6 @@ public class SampleScene : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.IsMasterClient) {
-            PhotonNetwork.InstantiateRoomObject("TextBoard", new Vector3(0f,1f,0f), Quaternion.identity);
-        }
-        
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 }
