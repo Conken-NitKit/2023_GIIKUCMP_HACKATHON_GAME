@@ -25,9 +25,8 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
         public void InitTextBoard()
         {
-            Debug.Log("InitTextBoard");
             if (_mainGameManager == null) _mainGameManager = GetComponent<MainGameManager>();
-            _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
+            if (_textBoard == null) _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
             _hashtable[TextKey] = "";
             PhotonNetwork.CurrentRoom.SetCustomProperties(_hashtable);
 
@@ -35,7 +34,7 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
             {
                 if (!_mainGameManager.ChooseCardText.Value)
                 {
-                    UpDatePreviousText();
+                    UpDatePreviousText(_textBoard.text);
                 }
             });
         }
@@ -47,6 +46,7 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
         public void AddText(string text)
         {
+            if (_textBoard == null) _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
             _hashtable[TextKey] = _textBoard.text + text;
             PhotonNetwork.CurrentRoom.SetCustomProperties(_hashtable);
             _hashtable.Clear();
@@ -59,18 +59,21 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
             _hashtable.Clear();
         }
 
-        public void UpDatePreviousText()
+        public void UpDatePreviousText(string currentText)
         {
-            _previousText = _textBoard.text;
+            if (_textBoard == null) _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
+            _previousText = currentText;
         }
         
-        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged) {
+        public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged) 
+        {
+            if (_textBoard == null) _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
             // 更新されたルームのカスタムプロパティのペアをコンソールに出力する
             foreach (var prop in propertiesThatChanged) {
                 switch (prop.Key)
                 {
                     case TextKey:
-                        Debug.Log($"参考 : 「{(string)prop.Value}」");
+                        UpDatePreviousText(_textBoard.text);
                         _textBoard.text = (string)prop.Value;
                         break;
                 }

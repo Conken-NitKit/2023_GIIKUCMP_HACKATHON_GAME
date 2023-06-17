@@ -54,7 +54,6 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
             _currentState.Subscribe(state =>
             {
                 OnStateChanged(state);
-                Debug.Log($"nextstate{state}");
             });
         }
         
@@ -85,15 +84,15 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
             
             if (_isMasterClient)
             {
-                Debug.Log(PhotonNetwork.InstantiateRoomObject("TextBoard", new Vector3(0f, 1f, 0f), Quaternion.identity));
+                PhotonNetwork.InstantiateRoomObject("TextBoard", new Vector3(0f, 2f, 0f), Quaternion.identity);
             }
+            
+            _playerCore.CreatePlayer(_isMasterClient, playerName);
 
             _cardDisPlay.DrawFirst();
             _textManager.InitTextBoard();
-            _playerCore.CreatePlayer(_isMasterClient, playerName);
-            Debug.Log("どうも");
-
-
+            
+            
             _currentState.Value = GameState.HappyTurn;
             
             Debug.Log(_currentState.Value);
@@ -109,15 +108,13 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
             ChooseCardText.Subscribe(_ =>
             {
-                if (!ChooseCardText.Value)
-                {
                     _timeManager.StopTimer();
                     if (CurrentTurnNum.Value < DefaultTurnNum)
                     {
                         _currentState.Value = GameState.BadTurn;
-                        _currentState.Value++;
+                        _currentTurnNum.Value++;
                     }
-                }
+                
             });
             
             _timeManager.TurnSecond.Subscribe(_ =>
@@ -133,6 +130,7 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
         void BadTurn()
         {
+            Debug.Log(GameState.BadTurn);
             _isHappyTurn.Value = false;
             _timeManager.RestartTimer();
 
@@ -147,7 +145,7 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
                 if (CurrentTurnNum.Value < DefaultTurnNum)
                 {
                     _currentState.Value = GameState.HappyTurn;
-                    _currentState.Value++;
+                    _currentTurnNum.Value++;
                 }
                 else
                 {
