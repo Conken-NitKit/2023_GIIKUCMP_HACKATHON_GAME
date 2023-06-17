@@ -16,21 +16,28 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
 
         private const string TextKey = "TEXT";
 
-        private const string TextBoard = "TextBoard";
+        private const string TextBoardTag = "TextBoard";
 
         private TextMeshPro _textBoard;
 
-        public void hoge()
+        [SerializeField]
+        private MainGameManager _mainGameManager;
+
+        public void InitTextBoard()
         {
-            if (PhotonNetwork.IsMasterClient) {
-                _textBoard = PhotonNetwork.InstantiateRoomObject(TextBoard, new Vector3(0f,1f,0f), Quaternion.identity).GetComponent<TextMeshPro>();
-            }
-            else
-            {
-                _textBoard = GameObject.FindWithTag(TextBoard).GetComponent<TextMeshPro>();
-            }
+            Debug.Log("InitTextBoard");
+            if (_mainGameManager == null) _mainGameManager = GetComponent<MainGameManager>();
+            _textBoard = GameObject.FindWithTag(TextBoardTag).GetComponent<TextMeshPro>();
             _hashtable[TextKey] = "";
             PhotonNetwork.CurrentRoom.SetCustomProperties(_hashtable);
+
+            _mainGameManager.ChooseCardText.Subscribe(_ =>
+            {
+                if (!_mainGameManager.ChooseCardText.Value)
+                {
+                    UpDatePreviousText();
+                }
+            });
         }
     
         private string GetText() 
@@ -55,7 +62,6 @@ namespace Assets.MyAssets.Scripts.MainGame.GameManagers
         public void UpDatePreviousText()
         {
             _previousText = _textBoard.text;
-            Debug.Log(_previousText);
         }
         
         public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged) {
