@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeText : MonoBehaviour
+namespace Assets.MyAssets.Scripts.MainGame.Items.ItemImple
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ChangeText : ItemBase
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void ActivateEffect()
+        {
+            _textManager.ResetPreviousText();
+        }
     }
 }

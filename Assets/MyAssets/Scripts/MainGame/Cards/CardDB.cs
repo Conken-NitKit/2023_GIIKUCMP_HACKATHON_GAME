@@ -1,6 +1,7 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.Networking;
@@ -11,19 +12,17 @@ namespace Assets.MyAssets.Scripts.MainGame.Cards
     {
         [SerializeField]
         string _sheetID;
-        [SerializeField]
-        string _sheetName;
 
         private List<string> cardDBTexts = new List<string>();
-        
-        public void Start(){
-            StartCoroutine(LoadGoogleSheet(_sheetName));     
+
+        void Start()
+        {
+            StartCoroutine(LoadGoogleSheet("FAIRY_TALE"));
         }
-        
+
         public IEnumerator LoadGoogleSheet(string sheetName){
             UnityWebRequest request = UnityWebRequest.Get($"https://docs.google.com/spreadsheets/d/{_sheetID}/gviz/tq?tqx=out:csv&sheet={sheetName}");
             yield return request.SendWebRequest();
-            
             var httpError    = request.result == UnityWebRequest.Result.ProtocolError   ? true : false;
             var networkError = request.result == UnityWebRequest.Result.ConnectionError ? true : false;
             
@@ -61,6 +60,7 @@ namespace Assets.MyAssets.Scripts.MainGame.Cards
 
         public string[] DrawCards(int drawNum)
         {
+            Debug.Log("hoge");
             string[] drawCards = new string[drawNum];
             for (int i = 0; i < drawNum; i++)
             {

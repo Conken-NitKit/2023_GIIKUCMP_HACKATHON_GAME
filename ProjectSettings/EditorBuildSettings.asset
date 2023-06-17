@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/MyAssets/Scenes/Game/Matching.unity
     guid: c680236d210d641e1b958676340cfffd
-  - enabled: 0
+  - enabled: 1
     path: Assets/MyAssets/Scenes/Game/MainGame.unity
     guid: b1d8623cfe4e14b9d88304b47efde81a
-  - enabled: 0
+  - enabled: 1
     path: Assets/MyAssets/Scenes/Game/Result.unity
     guid: a5a13f11b1eb2417482be6b736733a45
   - enabled: 0
     path: Assets/MyAssets/Scenes/Game/Library.unity
     guid: bffcbb881624f4125a39efccd2b0ba83
-  - enabled: 1
+  - enabled: 0
     path: Assets/MyAssets/Scenes/Develop/Hayashi.unity
     guid: 41097c9154d6d43c49ea78862e6a6ee2
   m_configObjects: {}
