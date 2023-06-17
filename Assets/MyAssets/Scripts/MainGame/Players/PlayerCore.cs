@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using Assets.MyAssets.Scripts.MainGame.Cards;
 using Assets.MyAssets.Scripts.MainGame.GameManagers;
 using Assets.MyAssets.Scripts.MainGame.Items;
-using Photon.Pun;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
+using Unity.VisualScripting;
 
 namespace Assets.MyAssets.Scripts.MainGame.Players
 {
     public class PlayerCore : MonoBehaviour
     {
-        private PlayerParameter _parameter;
+        public PlayerParameter Parameter;
 
         private ReactiveDictionary<ItemType, bool> _useItems = new ReactiveDictionary<ItemType, bool>();
         public IObservable<DictionaryReplaceEvent<ItemType, bool>> ReplaceObservable => _useItems.ObserveReplace();
@@ -24,32 +24,39 @@ namespace Assets.MyAssets.Scripts.MainGame.Players
         [SerializeField]
         private TextManager _textManager;
 
-        void Start()
+
+        public void CreatePlayer(bool isHappyTeam, string playerName)
         {
-            _parameter.IsHappyTeam = PhotonNetwork.IsMasterClient;
-            
+            Parameter.IsHappyTeam = isHappyTeam;
+
             this.UpdateAsObservable()
-                .Select(_ => Input.GetMouseButtonUp(0))
+                .Select(_ => Input.GetMouseButton(0))
                 .DistinctUntilChanged()
                 .Subscribe(x => _click.Value = x);
 
-            ClickMouse.Subscribe(_ =>
+            ClickMouse.Subscribe(x =>
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                //Rayの長さ
-                float maxDistance = 10;
-                var hits = Physics2D.RaycastAll((Vector2)ray.origin, (Vector2)ray.direction, maxDistance);
-                foreach (var hit in hits)
+                if (x)
                 {
-                    Debug.Log(hit.transform.name);
-                    var itemBase = hit.transform.GetComponent<ItemBase>();
-                    if (itemBase != null)
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                
+                    //Rayの長さ
+                    float maxDistance = 10;
+                    var hits = Physics2D.RaycastAll((Vector2)ray.origin, (Vector2)ray.direction, maxDistance);
+                
+                    foreach (var hit in hits)
                     {
-                        itemBase.ActivateEffect();
-                        ChangeItemBool(itemBase.ItemType, false);
+                        Debug.Log("一回だけかな");
+                        var itemBase = hit.transform.GetComponent<ItemBase>();
+                        if (itemBase != null)
+                        {
+                            itemBase.ActivateEffect();
+                            ChangeItemBool(itemBase.ItemType, false);
+                        }
+                        var text = hit.transform.GetComponent<ISendable>()?.ReceiveText();
+                        _textManager.AddText(text);
+                        break;
                     }
-                    _textManager.AddText(hit.transform.GetComponent<ISendable>()?.ReceiveText());
                 }
             });
         }

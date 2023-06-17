@@ -19,7 +19,7 @@ namespace Assets.MyAssets.Scripts.MainGame.Cards
         private GameObject _cardObject;
 
         public void DrawFirst()
-        {            
+        {
             _cardTexts.ObserveReplace().Subscribe(replaceEvent =>
              {
                  _cards[replaceEvent.Index].text = _cardTexts[replaceEvent.Index];

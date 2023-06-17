@@ -1,10 +1,13 @@
+using Assets.MyAssets.Scripts.MainGame.GameManagers;
 using Photon.Pun;
+using Photon.Pun.Demo.PunBasics;
 using Photon.Realtime;
 using UnityEngine;
 
 // MonoBehaviourPunCallbacksを継承して、PUNのコールバックを受け取れるようにする
 public class SampleScene : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private MainGameManager _gameManager;
     private void Start() {
         
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
@@ -29,6 +32,7 @@ public class SampleScene : MonoBehaviourPunCallbacks
     // ゲームサーバーへの接続が成功した時に呼ばれるコールバック
     public override void OnJoinedRoom()
     {
+        _gameManager.StartManager();
         Debug.Log(PhotonNetwork.CurrentRoom.Name);
     }
 }
