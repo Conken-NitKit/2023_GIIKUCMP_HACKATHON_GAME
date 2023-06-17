@@ -7,6 +7,15 @@
       "dependencies": {},
       "hash": "f2773f585e762480c835ac718b82b87cb111e500"
     },
+    "com.mochineko.chatgpt-api": {
+      "version": "https://github.com/mochi-neko/ChatGPT-API-unity.git?path=/Assets/Mochineko/ChatGPT_API#0.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2"
+      },
+      "hash": "c3f871ea73c72fbb19553ad14343d2ce54aa2f96"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
@@ -165,7 +174,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
