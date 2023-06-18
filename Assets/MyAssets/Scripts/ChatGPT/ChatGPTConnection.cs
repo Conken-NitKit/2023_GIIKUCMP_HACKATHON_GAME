@@ -11,14 +11,14 @@ namespace AAA.OpenAI
     {
         private readonly string _apiKey;
         //会話履歴を保持するリスト
-        private readonly List<ChatGPTMessageModel> _messageList = new();
+        public readonly List<ChatGPTMessageModel> _messageList = new();
 
         public ChatGPTConnection()
         {
             _apiKey = (Resources.Load("env", typeof(TextAsset))as TextAsset).text;
             Debug.Log(_apiKey);
             _messageList.Add(
-                new ChatGPTMessageModel(){role = "system",content = "以下の文章がハッピーエンドかバッドエンドかを答えてください。回答はハッピーエンドもしくはバッドエンドのみで出力してください。"});
+                new ChatGPTMessageModel(){role = "system",content = "以下の文章がハッピーエンドかバッドエンドかを答えてください。回答はハッピーエンドもしくはバッドエンドのみで出力してください。文章は不明確なときがあるのでその時はハッピーエンドのみを出力してください。"});
         }
 
         public async UniTask<ChatGPTResponseModel> RequestAsync(string userMessage)
@@ -74,7 +74,7 @@ namespace AAA.OpenAI
             {
                 var responseString = request.downloadHandler.text;
                 var responseObject = JsonUtility.FromJson<ChatGPTResponseModel>(responseString);
-                Debug.Log("ChatGPT:" + responseObject.choices[0].message.content);
+                Debug.Log(responseObject.choices[0].message.content);
                 _messageList.Add(responseObject.choices[0].message);
                 return responseObject;
             }
