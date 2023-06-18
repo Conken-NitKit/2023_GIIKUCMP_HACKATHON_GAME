@@ -11,6 +11,7 @@ public class test : MonoBehaviour
     {
         _chatGptConnection = new ChatGPTConnection();
         _chatGptConnection.RequestAsync("破滅の時が訪れた。");
+        //Debug.Log(_chatGptConnection._messageList[0]);
     }
 
 }
