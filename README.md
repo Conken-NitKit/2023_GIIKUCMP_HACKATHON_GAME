@@ -10,6 +10,9 @@
 ### 企画書もどき
 [企画書技育](https://github.com/Conken-NitKit/2023_GIIKUCMP_HACKATHON_GAME/files/11655298/default.pdf)
 
+#### デモ動画
+https://github.com/Conken-NitKit/2023_GIIKUCMP_HACKATHON_GAME/assets/83874472/21eae19e-88e5-4986-bb5f-60824bf63338
+
 ### フォルダ管理について
 
 
