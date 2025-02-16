@@ -7,8 +7,11 @@
 #### 概要
 物語創作×対戦ゲーム
 
+ランダムに配られた単語を組み合わせ、ハッピーエンド陣営、バットエンド陣営に分かれて交互に物語を紡いでいき、最終的にハッピーエンドなのか、バットエンドなのか、ChatGPTによって判定する！
+
 ### 企画書もどき
 [企画書技育](https://github.com/Conken-NitKit/2023_GIIKUCMP_HACKATHON_GAME/files/11655298/default.pdf)
+pdfファイル
 
 #### デモ動画
 https://github.com/Conken-NitKit/2023_GIIKUCMP_HACKATHON_GAME/assets/83874472/21eae19e-88e5-4986-bb5f-60824bf63338
